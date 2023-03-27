@@ -33,9 +33,7 @@ function App() {
                     data.results.slice(calculatePokemonPerPage(0), calculatePokemonPerPage(20))
                 );
                 setCurrentPage(0);
-                setTimeout(() => {
-                    setLoading(false);
-                }, 1000);
+                setLoading(false);
             })
             .catch((err) => {
                 alert('Er is iets fout gegaan met het laden van de pokemons');

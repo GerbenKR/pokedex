@@ -22,10 +22,7 @@ export default function Drawer({ isOpen, pokemonId, onClose, onPokemonChange }: 
             .then((res) => res.json())
             .then((data: PokemonFull) => {
                 setPokemon(data);
-
-                setTimeout(() => {
-                    setLoading(false);
-                }, 1000);
+                setLoading(false);
             })
             .catch((err) => {
                 alert('Er is iets fout gegaan met het laden van de pokemon');
