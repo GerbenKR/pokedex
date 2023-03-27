@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { colors } from '../colors';
 import LoadingSpinner from './LoadingSpinner';
 
 interface Props {
@@ -60,7 +61,9 @@ export default function Drawer({ isOpen, pokemonId, onClose, onPokemonChange }: 
                         {loading === false && (
                             <>
                                 <div className="flex items-center justify-between">
-                                    <h2 className="text-2xl font-medium">{pokemon?.name}</h2>
+                                    <h2 className="text-2xl font-medium capitalize">
+                                        {pokemon?.name}
+                                    </h2>
                                     <span className="cursor-pointer" onClick={() => onClose()}>
                                         Close
                                     </span>
@@ -79,13 +82,22 @@ export default function Drawer({ isOpen, pokemonId, onClose, onPokemonChange }: 
                                                 <span className="text-xl text-gray-500">
                                                     {pokemonId}.{' '}
                                                 </span>
-                                                <span className="font-medium">
+                                                <span className="font-medium capitalize">
                                                     {pokemon?.name}{' '}
                                                 </span>
                                                 <span className="text-xl text-gray-500">
                                                     ({pokemon?.types[0].type.name})
                                                 </span>
                                             </h2>
+
+                                            <div className="mt-5">
+                                                <p>
+                                                    <b>Height: </b> {pokemon?.height}
+                                                </p>
+                                                <p>
+                                                    <b>Weight: </b> {pokemon?.weight}
+                                                </p>
+                                            </div>
                                         </div>
 
                                         <div className="w-1/2">
@@ -98,7 +110,13 @@ export default function Drawer({ isOpen, pokemonId, onClose, onPokemonChange }: 
                                                     return (
                                                         <div
                                                             key={index}
-                                                            className="bg-green-800 text-white p-3 rounded-md mb-2 flex items-center justify-between">
+                                                            className=" text-white p-3 rounded-md mb-2 flex items-center justify-between"
+                                                            style={{
+                                                                background:
+                                                                    colors[
+                                                                        pokemon.types[0].type.name
+                                                                    ],
+                                                            }}>
                                                             <p>{stat.stat.name}</p>
                                                             <p>{stat.base_stat}</p>
                                                         </div>
@@ -114,7 +132,13 @@ export default function Drawer({ isOpen, pokemonId, onClose, onPokemonChange }: 
                                                     return (
                                                         <div
                                                             key={index}
-                                                            className="bg-green-800 text-white p-3 rounded-md mb-2 flex items-center justify-between">
+                                                            className=" text-white p-3 rounded-md mb-2 flex items-center justify-between"
+                                                            style={{
+                                                                background:
+                                                                    colors[
+                                                                        pokemon.types[0].type.name
+                                                                    ],
+                                                            }}>
                                                             <p>{ability.ability.name}</p>
                                                         </div>
                                                     );

@@ -13,7 +13,7 @@ export default function PokemonCard({ name, id }: Props) {
                     src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/${id}.png`}
                     alt={name}
                 />
-                <p className="mt-2 font-medium">
+                <p className="mt-2 font-medium capitalize">
                     {id}. {name}
                 </p>
             </div>
